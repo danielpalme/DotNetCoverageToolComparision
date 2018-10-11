@@ -3,8 +3,7 @@ mkdir target
 
 set "opencover=%UserProfile%\.nuget\packages\opencover\4.6.519\tools\OpenCover.Console.exe"
 set "reportgenerator=%UserProfile%\.nuget\packages\reportgenerator\3.1.2\tools\ReportGenerator.exe"
-set "xunit=%UserProfile%\.nuget\packages\xunit.runner.console\2.3.1\tools\net452\xunit.console.exe"
-set "altcover=%UserProfile%\.nuget\packages\altcover\3.0.388\tools\netcoreapp2.0\AltCover.dll"
+set "xunit=%UserProfile%\.nuget\packages\xunit.runner.console\2.4.0\tools\net452\xunit.console.exe"
 set "dotnet=C:\Program Files\dotnet\dotnet.exe"
 
 
@@ -49,9 +48,10 @@ msbuild .\CoverageDemo.sln /v:m /t:Rebuild
 set "targetdir=target\NetCore2_Coverlet"
 mkdir %targetdir%
 
-"%dotnet%" test --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutputDirectory=..\%targetdir% BusinessTest_NetCore2\BusinessTest_NetCore2.csproj
+"%dotnet%" test --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=..\%targetdir%\ BusinessTest_NetCore2\BusinessTest_NetCore2.csproj
+"%dotnet%" test --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=..\%targetdir%\ BusinessTest_NetCore2\BusinessTest_NetCore2.csproj
 
-"%reportGenerator%" -reports:%targetdir%\coverage.xml -reporttypes:HtmlInline -targetdir:%targetdir%
+"%reportGenerator%" -reports:%targetdir%\coverage.opencover.xml -reporttypes:HtmlInline -targetdir:%targetdir%
 
 ::%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% .NET Core 2.0 - AltCover %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -64,13 +64,6 @@ msbuild .\CoverageDemo.sln /v:m /t:Rebuild
 set "targetdir=target\NetCore2_AltCover"
 mkdir %targetdir%
 
-::Instrument
-"%dotnet%" "%altcover%" /i=BusinessTest_NetCore2\bin\Debug\netcoreapp2.0 /o=BusinessTest_NetCore2\bin\Debug\netcoreapp2.0\instrumented -x=%targetdir%\coverage.xml --opencover
+"%dotnet%" test --no-build /p:AltCover=true /p:AltCoverXmlReport=..\%targetdir%\coverage.opencover.xml /p:AltCoverCobertura=..\%targetdir%\coverage.cobertura.xml BusinessTest_NetCore2\BusinessTest_NetCore2.csproj
 
-::Copy the instrumented libraries back over the originals
-xcopy /s /y BusinessTest_NetCore2\bin\Debug\netcoreapp2.0\instrumented BusinessTest_NetCore2\bin\Debug\netcoreapp2.0
-
-::Execute tests
-"%dotnet%" test --no-build BusinessTest_NetCore2\BusinessTest_NetCore2.csproj
-
-"%reportGenerator%" -reports:%targetdir%\coverage.xml -reporttypes:HtmlInline -targetdir:%targetdir%
+"%reportGenerator%" -reports:%targetdir%\coverage.opencover.xml -reporttypes:HtmlInline -targetdir:%targetdir%
