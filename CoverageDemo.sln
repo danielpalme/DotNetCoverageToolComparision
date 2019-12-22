@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business_Standard2", "Busin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessTest_Net47", "BusinessTest_Net47\BusinessTest_Net47.csproj", "{FB278991-143B-4911-AE63-5106A1F2676D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessTest_NetCore2", "BusinessTest_NetCore2\BusinessTest_NetCore2.csproj", "{301722AD-E152-494D-B365-45DFA80F8DD7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessTest_NetCore3", "BusinessTest_NetCore3\BusinessTest_NetCore3.csproj", "{301722AD-E152-494D-B365-45DFA80F8DD7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{58806E8B-E571-468D-8B4E-E1981054E924}"
 	ProjectSection(SolutionItems) = preProject

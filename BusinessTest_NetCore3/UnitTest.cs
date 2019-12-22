@@ -1,6 +1,6 @@
 using Xunit;
 
-namespace BusinessTest_NetCore2
+namespace BusinessTest_NetCore3
 {
     public class UnitTest
     {
