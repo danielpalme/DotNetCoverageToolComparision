@@ -27,7 +27,7 @@ jobs:
       working-directory: BusinessTest_NetCore3
 
     - name: Create coverage report
-      run: dotnet reportgenerator "-reports:*Test/TestResults/*/coverage.cobertura.xml" "-targetdir:CoverageReports" "-reporttypes:Html;Cobertura"
+      run: dotnet reportgenerator "-reports:*Test*/TestResults/*/coverage.cobertura.xml" "-targetdir:CoverageReports" "-reporttypes:Html;Cobertura"
 
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
