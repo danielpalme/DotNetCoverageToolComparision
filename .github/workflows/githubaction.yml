@@ -1,0 +1,39 @@
+name: .NET Core - Coverlet - GitHub-Action
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.401
+
+    - name: Change directory
+      run: cd BusinessTest_NetCore3
+
+    - name: Build with dotnet
+      run: dotnet build
+
+    - name: Run tests with coverage
+      run: dotnet test --no-build --collect:"XPlat Code Coverage"
+
+    - name: ReportGenerator
+      uses: danielpalme/ReportGenerator-GitHub-Action@4.6.4
+      with:
+        reports: 'TestResults/*/coverage.cobertura.xml'
+        targetdir: 'CoverageReports'
+        reporttypes: 'HtmlInline;Cobertura'
+        verbosity: 'Verbose'
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: CoverageReports # Artifact name        
+        path: CoverageReports # Directory containing files to upload

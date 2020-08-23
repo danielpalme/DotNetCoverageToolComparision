@@ -1,0 +1,39 @@
+name: .NET Core - Coverlet - Local tool
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.401
+
+    - name: Restore local tools
+      run: dotnet tool restore
+
+    - name: Change directory
+      run: cd BusinessTest_NetCore3
+
+    - name: Build with dotnet
+      run: dotnet build
+
+    - name: Run tests with coverage
+      run: dotnet test --no-build --collect:"XPlat Code Coverage"      
+
+    - name: Create coverage report
+      run: dotnet reportgenerator "-reports:TestResults/*/coverage.cobertura.xml" "-targetdir:CoverageReports" "-reporttypes:Html;Cobertura"
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        # Artifact name
+        name: CoverageReports
+        # Directory containing files to upload
+        path: CoverageReports
