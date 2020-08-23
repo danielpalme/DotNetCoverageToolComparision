@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build:
 
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -18,17 +18,16 @@ jobs:
     - name: Restore local tools
       run: dotnet tool restore
 
-    - name: Change directory
-      run: cd BusinessTest_NetCore3
-
     - name: Build with dotnet
       run: dotnet build
+      workingDirectory: BusinessTest_NetCore3
 
     - name: Run tests with coverage
-      run: dotnet test --no-build --collect:"XPlat Code Coverage"      
+      run: dotnet test --no-build --collect:"XPlat Code Coverage"
+      workingDirectory: BusinessTest_NetCore3
 
     - name: Create coverage report
-      run: dotnet reportgenerator "-reports:TestResults/*/coverage.cobertura.xml" "-targetdir:CoverageReports" "-reporttypes:Html;Cobertura"
+      run: dotnet reportgenerator "-reports:*Test/TestResults/*/coverage.cobertura.xml" "-targetdir:CoverageReports" "-reporttypes:Html;Cobertura"
 
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
