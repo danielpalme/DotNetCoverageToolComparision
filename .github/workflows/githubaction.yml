@@ -17,11 +17,11 @@ jobs:
 
     - name: Build with dotnet
       run: dotnet build
-      workingDirectory: BusinessTest_NetCore3
+      working-directory: BusinessTest_NetCore3
 
     - name: Run tests with coverage
       run: dotnet test --no-build --collect:"XPlat Code Coverage"
-      workingDirectory: BusinessTest_NetCore3
+      working-directory: BusinessTest_NetCore3
 
     - name: ReportGenerator
       uses: danielpalme/ReportGenerator-GitHub-Action@4.6.4
