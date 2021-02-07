@@ -13,18 +13,18 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.1.401
+        dotnet-version: 5.0.102
 
     - name: Restore local tools
       run: dotnet tool restore
 
     - name: Build with dotnet
       run: dotnet build
-      working-directory: BusinessTest_NetCore3
+      working-directory: BusinessTest_NetCore
 
     - name: Run tests with coverage
       run: dotnet test --no-build --collect:"XPlat Code Coverage"
-      working-directory: BusinessTest_NetCore3
+      working-directory: BusinessTest_NetCore
 
     - name: Create coverage report
       run: dotnet reportgenerator "-reports:*Test*/TestResults/*/coverage.cobertura.xml" "-targetdir:CoverageReports" "-reporttypes:Html;Cobertura"
