@@ -2,8 +2,8 @@ rmdir /q /s target
 mkdir target
 
 set "opencover=%UserProfile%\.nuget\packages\opencover\4.7.1221\tools\OpenCover.Console.exe"
-set "reportgenerator=%UserProfile%\.nuget\packages\reportgenerator\5.0.0\tools\net6.0\ReportGenerator.exe"
-set "xunit=%UserProfile%\.nuget\packages\xunit.runner.console\2.4.1\tools\net452\xunit.console.exe"
+set "reportgenerator=%UserProfile%\.nuget\packages\reportgenerator\5.2.0\tools\net8.0\ReportGenerator.exe"
+set "xunit=%UserProfile%\.nuget\packages\xunit.runner.console\2.6.2\tools\net452\xunit.console.exe"
 set "dotnet=C:\Program Files\dotnet\dotnet.exe"
 
 ::%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% .NET 4.7 - OpenCover %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -14,10 +14,10 @@ rmdir /q /s BusinessTest_NetCore\obj
 msbuild .\CoverageDemo.sln /v:m /t:Restore
 msbuild .\CoverageDemo.sln /v:m /t:Rebuild
 
-set "targetdir=target\Net47_OpenCover"
+set "targetdir=target\Net48_OpenCover"
 mkdir %targetdir%
 
-"%opencover%" -register:user "-target:%xunit%" -targetargs:"BusinessTest_Net47\bin\Debug\BusinessTest_Net47.dll -noshadow -xml %targetdir%\xunit.xml" -output:%targetdir%\coverage.xml -returntargetcode -coverbytest:* -mergebyhash
+"%opencover%" -register:user "-target:%xunit%" -targetargs:"BusinessTest_Net48\bin\Debug\BusinessTest_Net48.dll -noshadow -xml %targetdir%\xunit.xml" -output:%targetdir%\coverage.xml -returntargetcode -coverbytest:* -mergebyhash
 
 "%reportGenerator%" -reports:%targetdir%\coverage.xml -reporttypes:HtmlInline -targetdir:%targetdir% -assemblyfilters:-xunit*
 

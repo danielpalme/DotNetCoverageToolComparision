@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business_Net47", "Business_Net47\Business_Net47.csproj", "{C468BD2F-A798-468D-A266-1B35BBB2B4DF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business_Net48", "Business_Net48\Business_Net48.csproj", "{C468BD2F-A798-468D-A266-1B35BBB2B4DF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business_Standard2", "Business_Standard2\Business_Standard2.csproj", "{1B73DBC3-1A2E-4BA5-8638-C003E8CCA9AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessTest_Net47", "BusinessTest_Net47\BusinessTest_Net47.csproj", "{0F627DC3-315C-4F38-9887-FFA0D0A00E48}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessTest_Net48", "BusinessTest_Net48\BusinessTest_Net48.csproj", "{0F627DC3-315C-4F38-9887-FFA0D0A00E48}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessTest_NetCore", "BusinessTest_NetCore\BusinessTest_NetCore.csproj", "{301722AD-E152-494D-B365-45DFA80F8DD7}"
 EndProject
