@@ -25,7 +25,7 @@ jobs:
       working-directory: BusinessTest_NetCore
 
     - name: Restore coverage history
-      uses: actions/download-artifact@v2
+      uses: dawidd6/action-download-artifact@v2
       with:
         name: CoverageHistory
         path: CoverageHistory
