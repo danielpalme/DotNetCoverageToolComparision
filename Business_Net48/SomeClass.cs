@@ -15,10 +15,5 @@ namespace Business_Net48
                 Console.WriteLine("b is bigger");
             }
         }
-
-        public void UncoveredMethod()
-        {
-            Console.WriteLine("Never executed");
-        }
     }
 }

@@ -15,10 +15,5 @@ namespace Business_Standard2
                 Console.WriteLine("b is bigger");
             }
         }
-
-        public void UncoveredMethod()
-        {
-            Console.WriteLine("Never executed");
-        }
     }
 }
