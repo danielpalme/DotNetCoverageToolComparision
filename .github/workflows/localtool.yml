@@ -32,6 +32,7 @@ jobs:
       with:
         name: CoverageHistory
         path: CoverageHistory
+      continue-on-error: true
 
     - name: Create coverage report
       run: dotnet reportgenerator "-reports:*Test*/TestResults/*/coverage.cobertura.xml" "-targetdir:CoverageReports" "-historydir:CoverageHistory" "-reporttypes:Html;Cobertura"

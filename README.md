@@ -1,6 +1,6 @@
 # Code coverage tools
 
-Test of code coverage tools for .NET 4.7 and .NET Core based on [xUnit](https://xunit.github.io/) sample project.
+Test of code coverage tools for .NET 4.78 and .NET Core based on [xUnit](https://xunit.github.io/) sample project.
 
 ## Tools
 The following coverage tools have been used:
