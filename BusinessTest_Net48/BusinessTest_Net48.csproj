@@ -62,13 +62,13 @@
       <Version>4.7.1221</Version>
     </PackageReference>
     <PackageReference Include="ReportGenerator">
-      <Version>5.3.5</Version>
+      <Version>5.4.2</Version>
     </PackageReference>
     <PackageReference Include="xunit">
-      <Version>2.8.1</Version>
+      <Version>2.9.2</Version>
     </PackageReference>
     <PackageReference Include="xunit.runner.console">
-      <Version>2.8.1</Version>
+      <Version>2.9.2</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
