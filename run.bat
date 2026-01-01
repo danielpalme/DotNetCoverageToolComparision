@@ -2,17 +2,17 @@ rmdir /q /s target
 mkdir target
 
 set "opencover=%UserProfile%\.nuget\packages\opencover\4.7.1221\tools\OpenCover.Console.exe"
-set "reportgenerator=%UserProfile%\.nuget\packages\reportgenerator\5.4.2\tools\net9.0\ReportGenerator.exe"
-set "xunit=%UserProfile%\.nuget\packages\xunit.runner.console\2.9.2\tools\net48\xunit.console.exe"
+set "reportgenerator=%UserProfile%\.nuget\packages\reportgenerator\5.5.1\tools\net10.0\ReportGenerator.exe"
+set "xunit=%UserProfile%\.nuget\packages\xunit.runner.console\2.9.3\tools\net48\xunit.console.exe"
 set "dotnet=C:\Program Files\dotnet\dotnet.exe"
 
-::%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% .NET 4.7 - OpenCover %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+::%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% .NET 4.8 - OpenCover %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-msbuild .\CoverageDemo.sln /v:m /t:Clean
+msbuild .\CoverageDemo.slnx /v:m /t:Clean
 rmdir /q /s BusinessTest_NetCore\bin
 rmdir /q /s BusinessTest_NetCore\obj
-msbuild .\CoverageDemo.sln /v:m /t:Restore
-msbuild .\CoverageDemo.sln /v:m /t:Rebuild
+msbuild .\CoverageDemo.slnx /v:m /t:Restore
+msbuild .\CoverageDemo.slnx /v:m /t:Rebuild
 
 set "targetdir=target\Net48_OpenCover"
 mkdir %targetdir%
@@ -23,11 +23,11 @@ mkdir %targetdir%
 
 ::%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% .NET Core - OpenCover %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-msbuild .\CoverageDemo.sln /v:m /t:Clean
+msbuild .\CoverageDemo.slnx /v:m /t:Clean
 rmdir /q /s BusinessTest_NetCore\bin
 rmdir /q /s BusinessTest_NetCore\obj
-msbuild .\CoverageDemo.sln /v:m /t:Restore
-msbuild .\CoverageDemo.sln /v:m /t:Rebuild
+msbuild .\CoverageDemo.slnx /v:m /t:Restore
+msbuild .\CoverageDemo.slnx /v:m /t:Rebuild
 
 set "targetdir=target\NetCore_OpenCover"
 mkdir %targetdir%
@@ -38,11 +38,11 @@ mkdir %targetdir%
 
 ::%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% .NET Core - Coverlet - msbuild %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-msbuild .\CoverageDemo.sln /v:m /t:Clean
+msbuild .\CoverageDemo.slnx /v:m /t:Clean
 rmdir /q /s BusinessTest_NetCore\bin
 rmdir /q /s BusinessTest_NetCore\obj
-msbuild .\CoverageDemo.sln /v:m /t:Restore
-msbuild .\CoverageDemo.sln /v:m /t:Rebuild
+msbuild .\CoverageDemo.slnx /v:m /t:Restore
+msbuild .\CoverageDemo.slnx /v:m /t:Rebuild
 
 set "targetdir=target\NetCore_Coverlet_msbuild"
 mkdir %targetdir%
@@ -53,12 +53,12 @@ mkdir %targetdir%
 
 ::%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% .NET Core - Coverlet - collector %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-msbuild .\CoverageDemo.sln /v:m /t:Clean
+msbuild .\CoverageDemo.slnx /v:m /t:Clean
 rmdir /q /s BusinessTest_NetCore\bin
 rmdir /q /s BusinessTest_NetCore\obj
 rmdir /q /s BusinessTest_NetCore\TestResults
-msbuild .\CoverageDemo.sln /v:m /t:Restore
-msbuild .\CoverageDemo.sln /v:m /t:Rebuild
+msbuild .\CoverageDemo.slnx /v:m /t:Restore
+msbuild .\CoverageDemo.slnx /v:m /t:Rebuild
 
 set "targetdir=target\NetCore_Coverlet_collector"
 mkdir %targetdir%
@@ -69,11 +69,11 @@ mkdir %targetdir%
 
 ::%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% .NET Core - AltCover %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-msbuild .\CoverageDemo.sln /v:m /t:Clean
+msbuild .\CoverageDemo.slnx /v:m /t:Clean
 rmdir /q /s BusinessTest_NetCore\bin
 rmdir /q /s BusinessTest_NetCore\obj
-msbuild .\CoverageDemo.sln /v:m /t:Restore
-msbuild .\CoverageDemo.sln /v:m /t:Rebuild
+msbuild .\CoverageDemo.slnx /v:m /t:Restore
+msbuild .\CoverageDemo.slnx /v:m /t:Rebuild
 
 set "targetdir=target\NetCore_AltCover"
 mkdir %targetdir%

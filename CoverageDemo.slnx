@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="run.bat" />
+  </Folder>
+  <Project Path="BusinessTest_Net48/BusinessTest_Net48.csproj" Id="0f627dc3-315c-4f38-9887-ffa0d0a00e48" />
+  <Project Path="BusinessTest_NetCore/BusinessTest_NetCore.csproj" />
+  <Project Path="Business_Net48/Business_Net48.csproj" Id="c468bd2f-a798-468d-a266-1b35bbb2b4df" />
+  <Project Path="Business_Standard2/Business_Standard2.csproj" />
+</Solution>
