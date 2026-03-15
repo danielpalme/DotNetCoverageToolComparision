@@ -62,7 +62,7 @@
       <Version>4.7.1221</Version>
     </PackageReference>
     <PackageReference Include="ReportGenerator">
-      <Version>5.5.1</Version>
+      <Version>5.5.4</Version>
     </PackageReference>
     <PackageReference Include="xunit">
       <Version>2.9.3</Version>
