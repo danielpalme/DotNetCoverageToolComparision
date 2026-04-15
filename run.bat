@@ -2,7 +2,7 @@ rmdir /q /s target
 mkdir target
 
 set "opencover=%UserProfile%\.nuget\packages\opencover\4.7.1221\tools\OpenCover.Console.exe"
-set "reportgenerator=%UserProfile%\.nuget\packages\reportgenerator\5.5.4\tools\net10.0\ReportGenerator.exe"
+set "reportgenerator=%UserProfile%\.nuget\packages\reportgenerator\5.5.5\tools\net10.0\ReportGenerator.exe"
 set "xunit=%UserProfile%\.nuget\packages\xunit.runner.console\2.9.3\tools\net48\xunit.console.exe"
 set "dotnet=C:\Program Files\dotnet\dotnet.exe"
 
